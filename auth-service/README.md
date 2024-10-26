@@ -131,3 +131,34 @@ This README should help new users set up the project, understand its purpose, an
 
 This **README.md** file includes all the setup instructions, detailed documentation on the `User` domain class, and guidelines for contributing to the repository. Let me know if any additional sections or adjustments are needed!
 ```
+## DTO Classes
+
+Data Transfer Objects (DTOs) are used to handle data between the client and server during the authentication process. The `auth-service` includes two main DTOs for this purpose: `AuthRequest` and `AuthResponse`.
+
+### `AuthRequest` Class
+
+The `AuthRequest` class represents the data received during a login attempt.
+
+**File Location**: `src/main/java/com/example/auth/dto/AuthRequest.java`
+
+- **Fields**:
+    - `username` (`String`): The username provided by the user.
+    - `password` (`String`): The user's password.
+- **Annotations**:
+    - **@Data**: Generates getters, setters, and other standard methods.
+    - **@NoArgsConstructor**: Generates a no-arguments constructor.
+    - **@AllArgsConstructor**: Generates a constructor with all arguments.
+
+#### Example Usage:
+
+```java
+AuthRequest request = new AuthRequest("john_doe", "password123");
+```
+
+These DTO classes help encapsulate request and response data, promoting clean and organized code.
+
+```
+---
+
+This documentation provides an overview of the `AuthRequest` and `AuthResponse` classes, their purpose, and field-level details. After creating these DTOs and adding the documentation, commit and push the updated `README.md` file to GitHub. Let me know if you’d like to proceed with implementing the service layer or any other part of the `auth-service`.
+```
