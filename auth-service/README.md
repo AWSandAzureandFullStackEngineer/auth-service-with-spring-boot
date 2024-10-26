@@ -162,3 +162,32 @@ These DTO classes help encapsulate request and response data, promoting clean an
 
 This documentation provides an overview of the `AuthRequest` and `AuthResponse` classes, their purpose, and field-level details. After creating these DTOs and adding the documentation, commit and push the updated `README.md` file to GitHub. Let me know if you’d like to proceed with implementing the service layer or any other part of the `auth-service`.
 ```
+
+## Repository Layer
+
+The repository layer is responsible for interacting with the database. In this project, we use Spring Data JPA to simplify CRUD operations on the `User` entity.
+
+### UserRepository
+
+The `UserRepository` interface provides database access for the `User` entity.
+
+**File Location**: `src/main/java/com/example/auth/repository/UserRepository.java`
+
+#### Purpose
+
+The `UserRepository` allows us to perform CRUD operations on `User` objects and provides a custom query to find users by their username.
+
+#### Methods
+
+- **`findByUsername(String username)`**: Fetches a user based on their username.
+
+### Testing the Repository Layer
+
+A test class `UserRepositoryTest` is provided to verify the functionality of the `UserRepository`. This uses the H2 in-memory database, making it lightweight and ideal for testing.
+
+#### Example Test Scenarios
+
+- **shouldFindUserByUsername**: Verifies that the `findByUsername` method retrieves a user when the username exists.
+- **shouldReturnEmptyIfUserNotFound**: Verifies that an empty result is returned if the username doesn’t exist in the database.
+
+These tests ensure that the repository interacts correctly with the database.

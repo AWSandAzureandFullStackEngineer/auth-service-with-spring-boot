@@ -14,7 +14,3 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-
-jwt:
-  secret: "skillswap" # This is the JWT secret key
-  expiration: 86400000  # Expiration time in milliseconds (24 hours)
