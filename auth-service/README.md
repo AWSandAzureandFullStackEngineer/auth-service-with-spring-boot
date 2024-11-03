@@ -191,3 +191,32 @@ A test class `UserRepositoryTest` is provided to verify the functionality of the
 - **shouldReturnEmptyIfUserNotFound**: Verifies that an empty result is returned if the username doesn’t exist in the database.
 
 These tests ensure that the repository interacts correctly with the database.
+
+## Service Layer
+
+The service layer in this project contains the business logic for user registration and password encoding. The `AuthService` interface defines the methods for handling authentication and registration, and `AuthServiceImpl` provides the implementation.
+
+### AuthService Interface
+
+The `AuthService` interface defines the `registerUser` method for registering a new user.
+
+**File Location**: `src/main/java/com/example/auth/service/AuthService.java`
+
+- **registerUser(String username, String password)**: Registers a new user with the provided username and password.
+
+### AuthServiceImpl Implementation
+
+The `AuthServiceImpl` class implements the `AuthService` interface. It uses `PasswordEncoder` to securely hash passwords and checks for existing usernames before creating a new user.
+
+**File Location**: `src/main/java/com/example/auth/service/AuthServiceImpl.java`
+
+#### Password Encoding
+
+The `AuthServiceImpl` uses `BCryptPasswordEncoder` to encode passwords before saving them to the database. This encoder provides a secure hashing algorithm to protect user passwords.
+
+#### Example Usage
+
+```java
+AuthService authService = new AuthServiceImpl(userRepository, passwordEncoder);
+User newUser = authService.registerUser("john_doe", "password123");
+```
